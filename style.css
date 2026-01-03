@@ -335,3 +335,13 @@ input[type="number"]:focus, select:focus {
         margin: 20px 10px;
     }
 }
+
+.initiative-text {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700; /* bold */
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
