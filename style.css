@@ -17,7 +17,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #5a3eb0 0%, #61369d 100%); /* slightly darker purple */
     color: var(--text-main);
     line-height: 1.5;
     padding: 1.5rem 1rem;
@@ -40,6 +40,18 @@ header h1 {
     color: white;
     margin-bottom: 0.25rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Line below heading */
+header h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: white;
+    margin: 8px auto 0;
+    border-radius: 2px;
 }
 
 header p {
@@ -54,6 +66,7 @@ header p {
     margin-bottom: 1rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    border-top: 5px solid var(--primary-color); /* top accent line */
 }
 
 h2 {
@@ -169,7 +182,7 @@ input[type="number"]:focus, select:focus {
 }
 
 .btn.primary:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02); /* added subtle scale */
     box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
 }
 
@@ -216,16 +229,34 @@ input[type="number"]:focus, select:focus {
     font-weight: 800;
 }
 
-@media (max-width: 600px) {
-    .course-row {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-    
-    .remove-btn {
-        justify-self: end;
-    }
+/* --- Result headings vertical line --- */
+.result-heading {
+    position: relative;
+    padding-left: 25px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
+
+.result-heading::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* --- Optional section divider --- */
+.section-divider {
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), #ffffff);
+    margin: 20px 0;
+}
+
+/* --- Top logos --- */
 .top-logos {
     position: relative;
     width: 100%;
@@ -234,6 +265,11 @@ input[type="number"]:focus, select:focus {
 
 .logo {
     height: 100px; /* increase logo size */
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .left-logo {
@@ -260,6 +296,18 @@ input[type="number"]:focus, select:focus {
     .right-logo {
         right: 20px; /* less padding on mobile */
     }
+
+    .course-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .remove-btn {
+        justify-self: end;
+    }
+
+    .card {
+        padding: 20px;
+        margin: 20px 10px;
+    }
 }
-
-
